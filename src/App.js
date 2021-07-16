@@ -60,7 +60,7 @@ const getRandomOption = () => options[Math.floor(Math.random() * options.length)
 function App() {
 
   useEffect(() => {
-    setOption(getRandomOption())
+    setOption(getRandomOption(), [])
   })
 
   const [ option, setOption ] = useState(getRandomOption());
