@@ -4,7 +4,7 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import { Button } from '@material-ui/core';
 import RefreshIcon from '@material-ui/icons/Refresh';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const options = [
   `How do you want to feel at the end of today?`,
@@ -58,10 +58,6 @@ const options = [
 const getRandomOption = () => options[Math.floor(Math.random() * options.length)];
 
 function App() {
-
-  useEffect(() => {
-    setOption(getRandomOption(), [])
-  })
 
   const [ option, setOption ] = useState(getRandomOption());
 
