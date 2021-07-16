@@ -1,12 +1,4 @@
-import React from 'react';
-import './App.css';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import { Button } from '@material-ui/core';
-import RefreshIcon from '@material-ui/icons/Refresh';
-import { useState } from 'react';
-
-const options = [
+var options = [
   `How do you want to feel at the end of today?`,
   `What are 3 things you're grateful for today?`,
   `What's one thing you'd like to do well today?`,
@@ -55,27 +47,17 @@ const options = [
   `When is a time in your life that you felt successful?`
 ];
 
-const getRandomOption = () => options[Math.floor(Math.random() * options.length)];
-
-function App() {
-
-  const [ option, setOption ] = useState(getRandomOption());
-
-  return (
-    <Container className="App">
-      <div className="page">
-        <Typography variant="h4" component="h1" gutterBottom>
-          {option}
-        </Typography>
-        <br />
-        <Button variant="contained" color="primary" onClick={() => {
-          setOption(getRandomOption())
-        }}>
-          <RefreshIcon />
-          New Prompt
-        </Button>
-      </div>
-    </Container>
-  );
+function getRandomOption() {
+  return options[Math.floor(Math.random() * options.length)];
 }
-export default App;
+
+var optionText = document.getElementById('optionText');
+var setNewOption = document.getElementById('setNewOption');
+
+optionText.innerHTML = getRandomOption();
+
+setNewOption.addEventListener('click', function(e) {
+  e.preventDefault();
+  
+  optionText.innerHTML = getRandomOption();
+})
